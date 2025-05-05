@@ -1,0 +1,27 @@
+# config.yaml
+
+sender_name: "Professor Snape"
+csv_filename: "list.csv"
+department: "Department of Defense Against the Dark Art"
+university: "Hogwarts School of Witchcraft and Wizardry"
+
+# Columns to exclude from "marks", ALL COLUMNS NOT EXCLUDE WILL BE TREATED AS A GRADE COLUMN !!!IMPORTANT
+exclude:
+  - "No."
+  - "Names"
+  - "gmail"
+
+# Email template
+template: |
+  Dear {student_name},
+
+  Your results in Potion Making is:
+
+  {marks_table}
+
+  If you have any concerns, feel free to reach out to me.
+
+  Sincerely,
+  {sender_name}
+  {department}
+  {university}
