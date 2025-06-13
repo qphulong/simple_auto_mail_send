@@ -1,0 +1,40 @@
+.tutorial {
+  position: absolute;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: #DDE4E6;
+  transition: left 0.3s ease-in-out;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.tutorialVisible {
+  left: 0;
+}
+
+.headerSection {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.p1 {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p2 {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

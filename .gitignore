@@ -1,3 +1,85 @@
+# Python Backend
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
 venv/
-.env
-*.csv
+env/
+.venv/
+.env/
+*.env
+
+# Dependency directories
+site-packages/
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+coverage.xml
+*.cover
+*.log
+tox/
+nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# React Frontend
+node_modules/
+dist/
+build/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript build artifacts
+*.tsbuildinfo
+
+# React environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Parcel cache (if used)
+.parcel-cache/
+
+# Testing and coverage (Frontend)
+coverage/
+*.lcov
+
+# Dependency lock files (optional, include if you want to commit them)
+# package-lock.json
+# yarn.lock
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+*.swp
+*~.nib
+.vscode/
+.idea/
+
+# Miscellaneous
+*.bak
+*.gho
+*.orig
+*.tmp
+*.backup
+*.pid
+*.seed
