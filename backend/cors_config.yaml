@@ -1,3 +1,3 @@
 allowed_origins:
   - http://localhost:3000
-  - https://simple-auto-mail-send-frontend.onrender.com/
+  - https://simple-auto-mail-send-frontend.onrender.com/auto_email_sender
