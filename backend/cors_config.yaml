@@ -1,2 +1,3 @@
 allowed_origins:
   - http://localhost:3000
+  - https://render.com/simple_auto_mail_send_frontend

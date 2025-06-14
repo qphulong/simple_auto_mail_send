@@ -1,5 +1,5 @@
 export const sendEmails = async (data) => {
-  const API_URL = "http://localhost:8000/send-emails";
+  const API_URL = "https://render.com/simple_auto_mail_send_backend/send-emails";
   try {
     const response = await fetch(API_URL, {
       method: 'POST',
