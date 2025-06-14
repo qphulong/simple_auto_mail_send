@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './RightCompiled.module.css';
 
 interface Student {
-    name: string;
+    student_name: string;
     email: string;
     marks: { [key: string]: number };
 }
@@ -26,7 +26,7 @@ const RightCompiled: React.FC<RightCompiledProps> = ({ parsedData }) => {
             .map(([subj, val]) => `${subj}: ${val}`)
             .join('\n');
         return template
-            .replace('{student_name}', student.name)
+            .replace('{student_name}', student.student_name)
             .replace('{marks_table}', marksTable)
             .replace(/{([^{}]+)}/g, (_, key) => templateVars[key] || `{${key}}`);
     };

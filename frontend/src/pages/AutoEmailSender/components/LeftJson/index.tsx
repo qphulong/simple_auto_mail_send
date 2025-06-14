@@ -5,7 +5,7 @@ import 'ace-builds/src-noconflict/theme-dracula';
 import styles from './LeftJson.module.css';
 
 interface Student {
-  name: string;
+  student_name: string;
   email: string;
   marks: { [key: string]: number };
 }

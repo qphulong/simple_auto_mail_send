@@ -10,7 +10,7 @@ from typing import Dict, List
 
 # Define Pydantic models for the request
 class Student(BaseModel):
-    name: str
+    student_name: str
     email: str
     marks: Dict[str, int]
 
@@ -58,7 +58,7 @@ def send_emails(request: EmailRequest):
                 
                 # Fill in the email template
                 message_body = request.template.format(
-                    student_name=student.name,
+                    student_name=student.student_name,
                     marks_table=marks_table,
                     **request.template_vars
                 )

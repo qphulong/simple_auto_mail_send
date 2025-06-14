@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { sendEmails } from './api';
 import LeftJson from './components/LeftJson';
 import RightCompiled from './components/RightCompiled';
@@ -7,7 +7,7 @@ import styles from './AutoEmailSender.module.css';
 
 // Define types matching the backend
 interface Student {
-  name: string;
+  student_name: string;
   email: string;
   marks: { [key: string]: number };
 }
@@ -21,13 +21,39 @@ interface EmailRequest {
     scores: Student[];
 }
 
+const initJson = `{
+  "gmail": "YOUR EMAIL",
+  "app_password": "YOUR GMAIL APP PASSWORD",
+  "subject": "Your 2025 Semester Exam Results",
+  "template": "Dear {student_name},\\n\\nYour exam results are as follows:\\n{marks_table}\\n\\nBest regards,\\n{sender_name}",
+  "template_vars": {
+    "sender_name": "YOUR SENDER NAME"
+  },
+  "scores": [
+    {
+      "name": "John Doe",
+      "email": "a@gmail.com",
+      "marks": {
+        "Math": 85,
+        "Science": 90,
+        "English": 78
+      }
+    }
+  ]
+}`
+
 const AutoEmailSender: React.FC = () => {
-  const [jsonInput, setJsonInput] = useState<string>('');
+  const [jsonInput, setJsonInput] = useState<string>(initJson);
   const [parsedData, setParsedData] = useState<EmailRequest | null>(null);
   const [error, setError] = useState<string>('');
   const [status, setStatus] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isTutorialVisible, setIsTutorialVisible] = useState<boolean>(false);
+
+  useEffect(()=>{
+    const parsed = JSON.parse(initJson);
+    setParsedData(parsed);
+  },[])
 
   const handleJsonChange = (newValue: string) => {
     setJsonInput(newValue);
