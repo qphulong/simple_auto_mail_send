@@ -30,6 +30,7 @@ try:
     with open("cors_config.yaml", "r") as file:
         cors_config = yaml.safe_load(file)
     allowed_origins = cors_config.get("allowed_origins", [])
+    print("Loaded allowed_origins:", allowed_origins)  # Debug log
 except FileNotFoundError:
     allowed_origins = []
     print("Warning: cors_config.yaml not found. No origins will be allowed for CORS.")
