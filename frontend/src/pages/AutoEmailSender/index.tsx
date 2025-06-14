@@ -31,7 +31,7 @@ const initJson = `{
   },
   "scores": [
     {
-      "name": "John Doe",
+      "student_name": "John Doe",
       "email": "a@gmail.com",
       "marks": {
         "Math": 85,
