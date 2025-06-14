@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Tutorial.module.css';
 import amiNeutral from '../../local_resources/ami_neutral_looped.gif';
-import amiHappy from '../../local_resources/ami_happy_looped.gif'
+import amiHappy from '../../local_resources/ami_happy_looped.gif';
 import { p1Prompt } from './prompts';
 import { p2Prompt } from './prompts';
 
@@ -11,14 +11,26 @@ interface TutorialProps {
 }
 
 const Tutorial: React.FC<TutorialProps> = ({ isVisible, onMouseLeave }) => {
-  const [showCopied, setShowCopied] = useState(false);
-  const copyToClipboard = () => {
+  const [showCopiedP1, setShowCopiedP1] = useState(false);
+  const [showCopiedP2, setShowCopiedP2] = useState(false);
+
+  const copyP1ToClipboard = () => {
     navigator.clipboard.writeText(p1Prompt).then(
       () => {
-        setShowCopied(true);
-        setTimeout(() => setShowCopied(false), 2000); // Hide after 2 seconds
+        setShowCopiedP1(true);
+        setTimeout(() => setShowCopiedP1(false), 2000);
       },
-      (err) => console.error('Failed to copy prompt:', err)
+      (err) => console.error('Failed to copy p1 prompt:', err)
+    );
+  };
+
+  const copyP2ToClipboard = () => {
+    navigator.clipboard.writeText(p2Prompt).then(
+      () => {
+        setShowCopiedP2(true);
+        setTimeout(() => setShowCopiedP2(false), 2000);
+      },
+      (err) => console.error('Failed to copy p2 prompt:', err)
     );
   };
 
@@ -44,7 +56,7 @@ const Tutorial: React.FC<TutorialProps> = ({ isVisible, onMouseLeave }) => {
           <div className={styles.promptContainer}>
             <pre className={styles.prompt}>{p1Prompt}</pre>
             <div className={styles.buttonWrapper}>
-              <button className={styles.copyButton} onClick={copyToClipboard} title="Copy to clipboard">
+              <button className={styles.copyButton} onClick={copyP1ToClipboard} title="Copy to clipboard">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -60,7 +72,7 @@ const Tutorial: React.FC<TutorialProps> = ({ isVisible, onMouseLeave }) => {
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
               </button>
-              {showCopied && <span className={styles.copiedMessage}>Copied</span>}
+              {showCopiedP1 && <span className={styles.copiedMessage}>Copied</span>}
             </div>
           </div>
         </div>
@@ -76,7 +88,7 @@ const Tutorial: React.FC<TutorialProps> = ({ isVisible, onMouseLeave }) => {
           <div className={styles.promptContainer}>
             <pre className={styles.prompt}>{p2Prompt}</pre>
             <div className={styles.buttonWrapper}>
-              <button className={styles.copyButton} onClick={copyToClipboard} title="Copy to clipboard">
+              <button className={styles.copyButton} onClick={copyP2ToClipboard} title="Copy to clipboard">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -92,7 +104,7 @@ const Tutorial: React.FC<TutorialProps> = ({ isVisible, onMouseLeave }) => {
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
               </button>
-              {showCopied && <span className={styles.copiedMessage}>Copied</span>}
+              {showCopiedP2 && <span className={styles.copiedMessage}>Copied</span>}
             </div>
           </div>
         </div>
