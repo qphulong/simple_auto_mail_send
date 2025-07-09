@@ -81,3 +81,7 @@ def send_emails(request: EmailRequest):
         raise HTTPException(status_code=401, detail="Invalid Gmail credentials")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to send emails: {str(e)}")
+    
+@app.get("/ping")
+def ping():
+    return {"status": "success", "message": "Server is responding"}
