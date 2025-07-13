@@ -1,4 +1,4 @@
 allowed_origins:
   - http://localhost:3000
   - https://simple-auto-mail-send-frontend.onrender.com
-  - https://ubermensch-frontend.onrender.com/
+  - https://ubermensch-frontend.onrender.com
